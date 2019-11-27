@@ -1,0 +1,5 @@
+[lemp]
+#python ansible_host=192.168.56.102
+puppetagent ansible_host=192.168.56.103
+puppetmaster ansible_host=192.168.56.104
+windows ansible_host=10.69.21.223
