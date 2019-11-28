@@ -1,11 +1,12 @@
 ---
 
-- hosts: lemp
-  remote_user: root
-  become: yes
+- hosts: win
+#  remote_user: root
+#   become: yes
 
   roles:
-    - common
-    - web
-    - db
+#    - common
+#    - web
+#    - db
 #    - reboot
+     - winupdate
