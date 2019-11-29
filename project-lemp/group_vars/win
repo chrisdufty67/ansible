@@ -1,6 +1,6 @@
 ---
 ansible_user: ansible
-ansible_password: thequickbrownfox17
+ansible_password: 
 ansible_port: 5986
 ansible_connection: winrm
 ansible_winrm_server_cert_validation: ignore
