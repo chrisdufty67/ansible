@@ -1,0 +1,5 @@
+---
+# vars file for db
+db_name: chrisdufty-db
+db_user: chris 
+db_pass: '*C960D382DB42E57D3BAC33891CF87900DCB1A869'

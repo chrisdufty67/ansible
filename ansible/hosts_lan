@@ -1,0 +1,16 @@
+[haynet]
+ST01	ansible_host=172.28.1.18
+TESTAGRWEB01	ansible_host=172.27.1.151
+TSABTEST01	ansible_host=172.27.1.220
+TSASURA02	ansible_host=172.27.1.28
+TSAWTEST02	ansible_host=172.27.1.240
+TSDS02	ansible_host=172.27.1.249
+LOAGRWEB01	ansible_host=172.27.1.30
+LOAGRBS01	ansible_host=172.27.1.25
+LOADFS02	ansible_host=172.27.1.149
+HMMSG01	ansible_host=172.27.004.200
+LONAGRDB04	ansible_host=172.28.1.26
+LONAGRDB04	ansible_host=172.28.1.26
+[cdtest]
+CDTEST01 	ansible_host=172.27.1.167
+LGTEST01 	ansible_host=172.27.1.166

@@ -1,0 +1,12 @@
+---
+- hosts: cdtest01
+  tasks:
+       - name: Create directory structure if it doesn't exist
+         win_file:
+                   path: C:\Temp\Ivanti
+                   state: directory
+
+       - name: Copy a single file online agent only to Vsphere - NO BitDefender! 
+         win_copy:
+                   src: ./HMGSvr2019_with_status.exe
+                   dest: C:\Temp\Ivanti\HMGSvr2019_with_status.exe

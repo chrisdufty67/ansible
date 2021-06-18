@@ -1,0 +1,9 @@
+---
+- hosts: win
+  tasks:
+       - name: Ping Windows Hosts
+         win_ping:      
+         #- name: Copy a single file
+         #win_copy:
+         #          src: ./HMGOffSiteSvrBDAV2019_with_status.exe
+         #          dest: c:\Temp\HMGOffSiteSvrBDAV2019_with_status.exe

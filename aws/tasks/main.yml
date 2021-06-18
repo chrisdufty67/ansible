@@ -1,0 +1,19 @@
+---
+- name: Ec2 Launcher
+  hosts: localhost
+  tasks: 
+        - name: Ec2 Launcher
+          ec2: 
+            instance_type: t2.micro
+            image: ami-09d95fab7fff3776c
+            key_name: Ansible
+            region: us-east-1
+            group: default
+            count: 1
+            vpc_subnet_id: subnet-03a72d5193971bcff
+            wait: yes
+            assign_public_ip: yes
+            region: us-east-1
+            group_id: sg-050daa0608fd56bd0
+            instance_id: i-0d4a3a7e46d0d8106
+            state: absent

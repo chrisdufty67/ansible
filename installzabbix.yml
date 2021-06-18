@@ -1,0 +1,10 @@
+---
+- hosts: cdtest
+  tasks:
+       - name: Install the Onsite Landesk Agent WITHOUT BitDefender on Vsphere (Haynet)
+         win_package:
+                  path: C:\Temp\HMGOffSiteSvrBDAV2019_with_status.exe
+                  product_id: auto
+                  #arguments: /S
+                  state: present
+

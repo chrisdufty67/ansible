@@ -1,0 +1,49 @@
+---
+- hosts: cdtest
+  tasks:
+      - name: Create directory structure if it doesn't exist
+        win_file:
+                  path: C:\zabbix-agent-scripts
+                  state: directory
+
+      - name: Copy Windows Update Sripts for Zabbix Agent                       
+        win_copy:
+                  src: ./CountUninstalledUpdates.ps1
+                  dest: C:\zabbix-agent-scripts\CountUninstalledUpdates.ps1
+      - name: Copy Windows Update Sripts for Zabbix Agent                       
+        win_copy:
+                  src: ./DaysSinceLastUpdate.ps1    
+                  dest: C:\zabbix-agent-scripts\DaysSinceLastUpdate.ps1
+      - name: Copy Windows Update Scripts for Zabbix Agent and add commands to execute them remotely in the zabbix_agent.conf                     
+        win_copy:
+                  src: ./ListUninstalledUpdates.ps1
+                  dest: C:\zabbix-agent-scripts\ListUninstalledUpdates.ps1
+      - win_lineinfile:                  
+                  path: C:\Program Files\Zabbix Agent\zabbix_agentd.conf
+                  line: UserParameter=DaysSinceLastUpdate,powershell -NoProfile -ExecutionPolicy bypass -File c:\zabbix-agent-scripts\DaysSinceLastUpdate.ps1    
+                  insertafter: '^# UserParameter='
+      - win_lineinfile:                  
+                  path: C:\Program Files\Zabbix Agent\zabbix_agentd.conf
+                  line: UserParameter=CountUninstalledUpdates,powershell -NoProfile -ExecutionPolicy bypass -File c:\zabbix-agent-scripts\CountUninstalledUpdates.ps1
+                  insertafter: '^# UserParameter='
+      - win_lineinfile:                  
+                  path: C:\Program Files\Zabbix Agent\zabbix_agentd.conf
+                  line: UserParameter=ListUninstalledUpdates,powershell -NoProfile -ExecutionPolicy bypass -File c:\zabbix-agent-scripts\ListUninstalledUpdates.ps1 
+                  insertafter: '^# UserParameter='
+      - win_lineinfile:                  
+                  path: C:\Program Files\Zabbix Agent\zabbix_agentd.conf
+                  line: UserParameter=pwcli,PowerShell.exe -NoProfile -ExecutionPolicy bypass -command Get-PowerCLIVersion ; echo $? | findstr True 
+                  insertafter: '^# UserParameter='
+      - win_lineinfile:                  
+                  path: C:\Program Files\Zabbix Agent\zabbix_agentd.conf
+                  line: EnableRemoteCommands=1
+                  insertafter: '^# EnableRemoteCommands=0'
+      - win_lineinfile:                  
+                  path: C:\Program Files\Zabbix Agent\zabbix_agentd.conf
+                  line: Timeout=30
+                  insertafter: '^# Timeout=3'
+                  nofify: Restart Zabbix Agent
+      - name: Restart Zabbix Agent
+        win_service:
+                  name: Zabbix Agent
+                  state: restarted

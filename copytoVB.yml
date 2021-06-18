@@ -1,0 +1,6 @@
+---
+ - hosts: kubeservers
+   tasks:
+    - name: Copy
+      src: DaysSinceLastUpdate.ps1
+      dest: /tmp
