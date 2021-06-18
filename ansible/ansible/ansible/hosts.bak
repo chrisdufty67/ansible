@@ -1,0 +1,35 @@
+[win]
+#localhost
+londs02.haynet.com	ansible_host=172.27.0.65
+LOAGRBS01	ansible_host=172.27.1.25
+TSASURA01	ansible_host=172.27.1.27
+TSASURA02	ansible_host=172.27.1.28
+LOAGRWEB01	ansible_host=172.27.1.30
+lonagrdb05old.haynet.com	ansible_host=172.27.1.35
+lonagrweb05old.haynet.com	ansible_host=172.27.1.37
+LONSIGNAGE01	ansible_host=172.27.1.62
+LONFS03	ansible_host=172.27.1.68
+
+[app01]
+#ADFS 2	ansible_host=172.27.1.149
+LONCLOUDMIG	ansible_host=172.27.1.196
+lodde01.haynet.com	ansible_host=172.27.1.31
+lonagrbs02.haynet.com	ansible_host=172.27.1.123
+LONGSYNC	ansible_host=172.27.1.133
+TSDS01	ansible_host=172.27.1.181
+
+[app02]
+TSABTest01	ansible_host=172.27.1.220
+lonces01.haynet.com	ansible_host=172.27.1.223
+TSAWTEST02	ansible_host=172.27.1.240
+TSDS02	ansible_host=172.27.1.249
+HMAPP03B	ansible_host=172.27.4.14
+HMAPP04B	ansible_host=172.27.4.16
+TSLAND02	ansible_host=172.27.4.32
+HMMSG01	ansible_host=172.27.4.200
+hadir01.haynet.com	ansible_host=172.27.4.249
+tsads	ansible_host=172.27.7.104
+[cdtest]
+LGTEST01	ansible_host=172.27.1.166
+CDTEST01 	ansible_host=172.27.1.167
+
